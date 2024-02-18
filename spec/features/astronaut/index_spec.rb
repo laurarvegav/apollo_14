@@ -52,12 +52,28 @@ RSpec.describe 'Astronaut Index Page', type: :feature do
       # (e.g "Apollo 13" 
       # "Capricorn 4"
       # "Gemini 7")
-      save_and_open_page
       within ".astronaut-#{@astronaut_1.id}" do
         within "#missions" do
           expect("Apollo 13").to appear_before("Capricorn 4")
           expect("Capricorn 4").to appear_before("Gemini 7")
         end
+      end
+    end
+
+    #User story 4
+    it 'displays the average age of all astronauts' do
+      # As a visitor,
+      # When I visit the Astronauts index page ('/astronauts')
+      visit "/astronauts"
+      # I see the total time in space for each astronaut.
+      within ".astronaut-#{@astronaut_1.id}" do
+        #(e.g. "Name: Neil Armstrong, Age: 37, Job: Commander, Total Time in Space: 760 days")
+        expect(page).to have_content("Total Time in Space: 28 days")
+      end
+
+      within ".astronaut-#{@astronaut_2.id}" do
+        #(e.g. "Name: Neil Armstrong, Age: 37, Job: Commander, Total Time in Space: 760 days")
+        expect(page).to have_content("Total Time in Space: 23 days")
       end
     end
   end

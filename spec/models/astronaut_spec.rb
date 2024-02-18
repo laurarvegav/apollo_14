@@ -44,5 +44,13 @@ describe Astronaut, type: :model do
         expect(@astronaut_2.org_missions).to eq([@mission_3, @mission_2])
       end
     end
+
+    describe "#total_time_in_space" do
+      it 'returns the total time an astronaut will be in space' do
+        
+        expect(@astronaut_1.total_time_in_space).to eq(28)
+        expect(@astronaut_2.total_time_in_space).to eq(23)
+      end
+    end
   end
 end
