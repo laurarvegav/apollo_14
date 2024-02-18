@@ -22,5 +22,15 @@ RSpec.describe 'Astronaut Index Page', type: :feature do
         expect(page).to have_content("Job: Commander")
       end
     end
+
+    #User story 2
+    it 'displays the average age of all astronauts' do
+      # As a visitor,
+      # When I visit the Astronauts index page ('/astronauts')
+      visit "/astronauts"
+      # I see the average age of all astronauts.
+      # (e.g. "Average Age: 34")
+      expect(page).to have_content("Average Age: 39")
+    end
   end
 end
