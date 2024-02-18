@@ -1,0 +1,12 @@
+<p><%= @astronaut.name %></p>
+  Missions: 
+  <% @astronaut.org_missions.each do |mission| %>
+     <%= mission.title %>,
+  <% end %>
+
+  <br>Add a new mission <%= form_with url: "/astronauts/#{@astronaut.id}/missions", local: true, method: :post do |f| %>
+    <%= f.label :Mission_Id %>
+    <%= f.text_field :Mission_Id %>
+
+    <%= f.submit %>
+  <% end %>
